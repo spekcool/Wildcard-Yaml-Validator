@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import os
 
-wildcards_path = r"D:\AI\STMatrix\Packages\ComfyUI\custom_nodes\ComfyUI-Impact-Pack\wildcards"
+# Использовать папку, где запущен скрипт
+wildcards_path = os.getcwd()
 
 BAD_BYTES = [b'\xef', b'\xbb', b'\xbf', b'\xc3', b'\x80']
 
@@ -31,7 +32,7 @@ def clean_file(file_path):
         print(f"✅ Чисто: {file_path}")
 
 def scan_and_clean(path):
-    print("🚀 Запуск автоочистки YAML-файлов...\n")
+    print(f"🚀 Запуск автоочистки YAML-файлов в папке:\n{path}\n")
     for root, dirs, files in os.walk(path):
         for file in files:
             if file.endswith(".yaml") or file.endswith(".yml"):
