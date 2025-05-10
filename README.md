@@ -71,18 +71,25 @@ wildcard_auto_cleaner_v3.py
 
 🚀 Usage
 Place .py scripts into your ComfyUI or working folder.
+ComfyUI/custom_nodes/ComfyUI-Impact-Pack/wildcards/
 
 Validate:
+ ```bash
 python wildcard_validator.py
-
+```
 Clean:
+ ```bash
 python wildcard_auto_cleaner_v3.py
-
+```
 Re-validate:
+```bash
 python wildcard_validator.py
+```
+
 📁 Wildcard Files Location
 Default path:
 ComfyUI/custom_nodes/ComfyUI-Impact-Pack/wildcards/
+
 ⚠️ Why This Tool Exists
 Some YAML wildcards contain invisible or non-UTF8 characters, which break ComfyUI parsing and prompt generation.
 These scripts find and remove them automatically.
