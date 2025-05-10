@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import os
 
-wildcards_path = r"D:\AI\STMatrix\Packages\ComfyUI\custom_nodes\ComfyUI-Impact-Pack\wildcards"
+# 📂 Текущая рабочая директория, где запускается скрипт
+wildcards_path = os.getcwd()
 
 def clean_strict_ascii(file_path):
     with open(file_path, 'rb') as f:
@@ -11,7 +12,7 @@ def clean_strict_ascii(file_path):
     removed = []
 
     for i, b in enumerate(raw):
-        if 32 <= b <= 126 or b in (9, 10, 13):  # ASCII printable + \t \n \r
+        if 32 <= b <= 126 or b in (9, 10, 13):  # Разрешённые: печатные ASCII + \t \n \r
             cleaned.append(b)
         else:
             removed.append((i, b))
@@ -29,7 +30,7 @@ def scan(path):
     print("🚀 Строгая очистка только ASCII...\n")
     for root, dirs, files in os.walk(path):
         for file in files:
-            if file.endswith(".yaml") or file.endswith(".yml"):
+            if file.endswith((".yaml", ".yml")):
                 clean_strict_ascii(os.path.join(root, file))
     print("\n✅ Обработка завершена.")
 
